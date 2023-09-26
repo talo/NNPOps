@@ -101,7 +101,7 @@ add_custom_command(
 add_test(TestGetNeighborPairs  pytest -v --doctest-modules ${CMAKE_BINARY_DIR}/test/getNeighborPairs.py)
 
 # Installation
-install(TARGETS ${LIBRARY} DESTINATION ${Python3_SITEARCH}/${NAME})
+install(TARGETS ${LIBRARY} DESTINATION $ENV{PYTHON_INSTALL_PATH}/${NAME})
 install(FILES src/pytorch/__init__.py
               src/pytorch/BatchedNN.py
               src/pytorch/CFConv.py
@@ -110,10 +110,10 @@ install(FILES src/pytorch/__init__.py
               src/pytorch/OptimizedTorchANI.py
               src/pytorch/SpeciesConverter.py
               src/pytorch/SymmetryFunctions.py
-        DESTINATION ${Python3_SITEARCH}/${NAME})
+        DESTINATION $ENV{PYTHON_INSTALL_PATH}/${NAME})
 install(FILES src/pytorch/neighbors/__init__.py
               src/pytorch/neighbors/getNeighborPairs.py
-        DESTINATION ${Python3_SITEARCH}/${NAME}/neighbors)
+        DESTINATION $ENV{PYTHON_INSTALL_PATH}/${NAME}/neighbors)
 install(FILES src/pytorch/pme/__init__.py
               src/pytorch/pme/pme.py
-        DESTINATION ${Python3_SITEARCH}/${NAME}/pme)
+        DESTINATION $ENV{PYTHON_INSTALL_PATH}/${NAME}/pme)
