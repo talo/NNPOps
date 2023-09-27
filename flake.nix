@@ -34,8 +34,10 @@
       devShells = forAllSystems ({ pkgs }: {
         built = pkgs.mkShell {
           packages = [
-            (pkgs.python3.withPackages
-              (pkgs: [ self.packages.x86_64-linux.nnpops-python ]))
+            (pkgs.python3.withPackages (python_packages: [
+              self.packages.x86_64-linux.nnpops-python
+              python_packages.torch
+            ]))
           ];
 
           shellHook = ''
